@@ -7,13 +7,20 @@
 
 import SwiftUI
 
+///The main viewModel. Init with a **NetworkManager** which is later used in *fetchFilms()*.
+///- NOTE: Conforms to ObservableObject to allow for dynamic view updating.
 class MasterViewModel: ObservableObject {
     var networkManager: NetworkManager
+    let navTitle = "Films"
+    let fetchButtonTitle = "Fetch Films"
+    
     @Published var films: [Film] = [Film]()
     @Published var emptyStateMessage: String = "No Films Loaded"
     @Published var isLoading: Bool = false
     @Published var showLoadingMessage: Bool = true
     @Published var selectedFilm: Film?
+    
+
 
     init(_ networkManager: NetworkManager) {
         self.networkManager = NetworkManager()

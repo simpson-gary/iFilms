@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+///The detail viewModel. Init with a **Film?**.
+///- NOTE: **Film** is optional to allow for the *.emptyState*  extension to function correctly.
 class DetailViewModel: ObservableObject {
     var selectedFilm: Film?
     let emptyContentMessage: String = "No Film Selected"

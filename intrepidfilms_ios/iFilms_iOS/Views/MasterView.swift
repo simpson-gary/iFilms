@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+///The Application View. Consists of a navTitle, fetchButton, and filmList.
 struct MasterView: View {
     @ObservedObject var viewModel: MasterViewModel
     
@@ -15,9 +16,9 @@ struct MasterView: View {
             ForEach(viewModel.films) { film in
                 NavigationLink(destination: DetailView( viewModel: DetailViewModel(film))
                                 .navigationTitle(viewModel.selectedTitle(film))) {
-                    FilmRowView(film: film)
+                    FilmRowView(title: film.title, episodeId: film.episode_id)
                 }
-                .navigationTitle("Films")
+                .navigationTitle(viewModel.navTitle)
             }
         }
         .emptyState(viewModel.showLoadingMessage, emptyContent: {
@@ -26,7 +27,7 @@ struct MasterView: View {
         .navigationBarItems(trailing: Button(action: {
             viewModel.fetchFilms()
         }, label: {
-            Text("Fetch Films")
+            Text(viewModel.fetchButtonTitle)
         }))
     }
 }

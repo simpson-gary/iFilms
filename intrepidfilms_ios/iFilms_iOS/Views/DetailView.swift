@@ -7,11 +7,10 @@
 
 import SwiftUI
 
+///View used for displaying film after selected in **MasterView**.
 struct DetailView: View {
     @ObservedObject var viewModel: DetailViewModel
-    var selectedFilm: Film?
-    var selectedFilmTitle: String = ""
-    
+
     var body: some View {
         VStack(alignment: .leading, spacing: .zero) {
             Text(viewModel.selectedFilm?.director ?? "")

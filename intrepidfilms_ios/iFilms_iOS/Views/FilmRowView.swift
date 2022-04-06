@@ -7,13 +7,15 @@
 
 import SwiftUI
 
+///Base row used for each *List* in the  **MasterView**.
 struct FilmRowView: View {
-    let film: Film
+    let title: String
+    let episodeId: Int
     
     var body: some View {
         VStack(alignment: .leading, spacing: .zero) {
-            Text(film.title)
-            Text("\(film.episode_id)")
+            Text(title)
+            Text("\(episodeId)")
         }
     }
 }
